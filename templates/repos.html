@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block header %}
+<div class='containerr'>
+{% if user %}
+<h1 class='fr'>{% block title %}reposotories by {{user.username}}! {% endblock %}</h1>
+{% for repo in repos %}
+        <!-- <img src="{{user.image}}" class="card-img-top" alt="..."> -->
+        <ul class="list-group ">
+            <li class="list-group-item list-group-item-dark">{{repo.name}}</li>
+            <li class="list-group-item list-group-item-dark">{{repo.description}}</li>
+            <li class="list-group-item list-group-item-dark">git clone {{repo.clone_url}}</li>
+            <li class="list-group-item list-group-item-dark" >{{repo.full_name}}</li>
+            <!--<h5 class="card-title">User: {{user.username}}</h5>-->
+            <!--<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>-->
+            <a href="{{repo.clone_url}}" class="btn xyz">Go to reposotory</a>
+        </ul>
+        <br>
+
+  {% endfor %}
+  {% endif %}
+  </div>
+  
+{% endblock %}
