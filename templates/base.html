@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<title>{% block title %}{% endblock %} - Github tool by cdvx</title>
+<!--<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }} " type="text/css">-->
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Knewave">
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=IBM Plex Mono">
+
+<style>
+
+h1 {
+    font-family: 'Knewave', serif;
+    font-size: 48px;
+}
+h1.fr{
+    font-family: 'Knewave', serif;
+    color:beige;
+    font-size: 48px;
+    marginLeft: 50px;
+}
+li.list-group-item {
+  background-color: rgb(37, 68, 62) !important;
+  color: beige;
+  
+}
+
+a.btn.xyz {
+    background-color:rgb(6, 36, 82) !important;
+    color: beige;
+  }
+
+a {
+    font-family: 'IBM Plex Mono';
+    font-size: 18px;
+}
+
+body {
+    background-color: rgb(22, 39, 36) !important;
+}
+
+div.container {
+    margnTop: 20%;
+    padding: 40px;
+    <!--background-color: aliceblue !important;-->
+    height: 80%;
+    width: 100%;
+}
+
+h1.he {
+    marginLeft: 50px !important;
+    color: rgb(230, 88, 6);
+    font-style: italic;
+}
+
+h1.he small {
+    font-size: 20px;
+}
+
+li.nav-item {
+    margin: 0 0 20px 30px;
+}
+
+div.container.xxr {
+  padding:0;
+}
+
+ul.conti h1 {
+    color: beige !important;
+    margn-left: 100 !important;
+    justify-content: center !important;
+}
+section div.container{
+    margin-left: 10em
+}
+
+.nav1 {
+    width: 100%;
+    height: 150px;
+    background-color: rgb(6, 36, 82) !important;
+    margin: 0;
+}
+</style>
+</head>
+<body>
+<div class='container'>
+<nav class='nav1'>
+<div class='container'>
+  <h1 class='he'>Github tool <small>by cdvx</small></h1>
+</div>
+  <ul class="nav">
+    {% if g.user %}
+      <li class="nav-item"><a class="nav-link" href="{{ url_for('user_app.user') }}">Get user</a>
+      <li class="nav-item"><a class="nav-link" href="{{ url_for('user_app.repo') }}">Get repositories</a>
+      <li class="nav-item"><a class="nav-link" href="{{ url_for('user_app.logout') }}">Log Out</a>
+    {% else %}
+      <li class="nav-item"><a class="nav-link" href="{{ url_for('user_app.login') }}">Log In</a>
+    {% endif %}
+  </ul>
+</nav>
+
+</div>
+<div class='container xxr'>
+<section class="content">
+  <header>
+    {% block header %}{% endblock %}
+  </header>
+  {% for message in get_flashed_messages() %}
+    <div class="flash">{{ message }}</div>
+  {% endfor %}
+  {% block content %}{% endblock %}
+
+</section>
+</div>
+</body>
+</html>
