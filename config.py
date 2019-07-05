@@ -8,7 +8,7 @@ import os, sys
 class Config:
     GITHUB_CLIENT_ID = os.getenv('GITHUB_CLIENT_ID')
     GITHUB_CLIENT_SECRET = os.getenv('GITHUB_CLIENT_SECRET')
-    DEBUG = True
+    DEBUG = False
     TESTING = False
     CSRF_ENABLED = True
     SECRET_KEY = os.getenv('SECRET')
@@ -29,7 +29,7 @@ class Config:
 class ProductionConfig(Config):
     SQLALCHEMY_DATABASE_URI = Config.generate_url(
         'DATABASE_URL_PROD', Config.DB_USER, Config.DB_PASSWORD,
-        Config.DB_HOST, Config.DB_NAME)
+        Config.DB_HOST, Config.DB_NAME) or os.getenv('DATABASE_URL')
 
 
 class DevelopmentConfig(Config):
@@ -37,7 +37,7 @@ class DevelopmentConfig(Config):
     DEBUG = True
     SQLALCHEMY_DATABASE_URI = Config.generate_url(
         'DATABASE_URL_DEV', Config.DB_USER,
-        Config.DB_PASSWORD, Config.DB_HOST, Config.DB_NAME)
+        Config.DB_PASSWORD, Config.DB_HOST, Config.DB_NAME) 
 
 
 class TestingConfig(Config):
