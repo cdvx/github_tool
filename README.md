@@ -52,11 +52,9 @@ A simple github tool
     python manage.py runserver
     ```
 
-        ```
- 
 
 ## Built with
-- Python version  3
+- Python 3.6.5
 - Flask
 - Postgres
 

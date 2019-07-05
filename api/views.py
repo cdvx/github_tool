@@ -82,7 +82,7 @@ def authorized(access_token):
             })
     g.user = user
     db.session.commit()
-    session['user_id'] = user.username
+    session['user_id'] = user.username or user.github_login
 
     return redirect(next_url)
     
@@ -101,7 +101,7 @@ def _handle_response():
         'client_id': Config.GITHUB_CLIENT_ID,
         'client_secret': Config.GITHUB_CLIENT_SECRET
     }
-    url = "https://github.com/login/oauth/" + 'access_token'
+    url = "https://github.com/login/oauth/access_token"
     response = requests.post(url, data=params)
     data = parse_qs(response.content)
     for k, v in data.items():
@@ -140,10 +140,6 @@ def logout():
 
 @user_app.route('/user')
 def user():
-    headers = {
-        "Authorization": f"token {g.user.github_access_token}"
-    }
-    r = github.get('/user', headers=headers)
     return render_template('index.html', user=g.user)
 
 
@@ -158,7 +154,6 @@ def repo():
     return render_template('repos.html', user=g.user, repos=rep)
 
 def to_rep(obj):
-    print(obj)
     temp = {
         'name': obj['name'],
         'description': obj['description'] if  obj['description'] else 'No description available',

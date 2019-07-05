@@ -3,31 +3,78 @@
   <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!--<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 <title>{% block title %}{% endblock %} - Github tool by cdvx</title>
 <!--<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }} " type="text/css">-->
-<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Knewave">
-<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=IBM Plex Mono">
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Knewave" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=IBM Plex Mono" rel="stylesheet" type="text/css">
+
+  <link href="https://bootswatch.com/3/cyborg/bootstrap.css" type="text/css" rel="stylesheet">
+  <link href="https://bootswatch.com/3/cyborg/bootstrap.min.css" type="text/css" rel="stylesheet">
+
+  <link href="https://bootswatch.com/3/cyborg/variables.less" type="text/css" rel="stylesheet">
+  <link href="https://bootswatch.com/3/cyborg/bootswatch.less" type="text/css" rel="stylesheet">
+  <link href="https://bootswatch.com/3/cyborg/_bootswatch.scss" type="text/css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 <style>
+@import url('https://fonts.googleapis.com/css?family=Knewave');
+@import url('https://fonts.googleapis.com/css?family=IBM Plex Mono');
+
+html {
+  height: 100% !important;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
 
 h1 {
     font-family: 'Knewave', serif;
     font-size: 48px;
 }
+div.container.border-0 {
+  background-color:rgb(6, 36, 82) !important;
+  height: 40% !important;
+  padding: 5px;
+}
+
 h1.fr{
     font-family: 'Knewave', serif;
     color:beige;
     font-size: 48px;
-    marginLeft: 50px;
+    margin: 15px;
+
 }
+
+.navbar-default .navbar-nav>li>a {
+    color: #a6a2dc !important;
+
+}
+
+.navbar-default .navbar-nav>li>a:hover, .navbar-default .navbar-nav>li>a:focus {
+    color: beige !important;
+}
+
+.navbar-default .navbar-brand:hover, .navbar-default .navbar-brand:focus, small:hover {
+    color: beige !important;
+}
+
+
+
 li.list-group-item {
   background-color: rgb(37, 68, 62) !important;
   color: beige;
   
+}
+ul.list-group{
+    padding: 5px 0px 0px 0px;
+    margin: 0px 4px 0px 4px !important;
 }
 
 a.btn.xyz {
@@ -41,33 +88,50 @@ a {
 }
 
 body {
-    background-color: rgb(22, 39, 36) !important;
+  background-color: rgb(22, 39, 36) !important;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+div.container.pr {
+    height: 100% !important;
 }
 
 div.container {
-    margnTop: 20%;
-    padding: 40px;
-    <!--background-color: aliceblue !important;-->
-    height: 80%;
-    width: 100%;
+    padding: 25px;
+    height: 60% !important;
+    width: 100% !important;
+}
+
+div.container.h{
+    height: 100% !important;
+}
+
+div.container.vvs {
+  background-color: rgb(6, 36, 82) !important;
+  padding:0;
+}
+
+header#header{
+    marginTop:0px;
 }
 
 h1.he {
-    marginLeft: 50px !important;
-    color: rgb(230, 88, 6);
-    font-style: italic;
+  marginTop: 20px;
+  color: rgb(230, 88, 6);
+  font-style: italic;
 }
 
-h1.he small {
-    font-size: 20px;
-}
 
-li.nav-item {
-    margin: 0 0 20px 30px;
-}
+<!-- li.nav-item { margin: 0 0 20px 30px;}-->
 
 div.container.xxr {
   padding:0;
+  height: 60% !important;
 }
 
 ul.conti h1 {
@@ -75,36 +139,92 @@ ul.conti h1 {
     margn-left: 100 !important;
     justify-content: center !important;
 }
-section div.container{
-    margin-left: 10em
+div.contr {
+  max-height: 130px;
+  display: block;
+
+}
+.nav1 {
+    display: block;
+    height: 100%;
+    padding: 15px;
+    margin: 0px !important;
+    background-color: rgb(6, 36, 82) !important;
+    overflow:auto !important;
 }
 
-.nav1 {
-    width: 100%;
-    height: 150px;
+nav.navbar.navbar-default {
+
     background-color: rgb(6, 36, 82) !important;
-    margin: 0;
+}
+
+.navbar-default .navbar-brand {
+    color: rgb(230, 88, 6);
+    font-family: 'Knewave', serif;
+    width: 100%;
+    font-size: 40px;
+
+}
+
+div.stay {
+    position: absolute;
+    top: 10px;
+    height: 100px;
+}
+
+button.navbar-toggle.collapsed {
+    background-color: rgb(6, 36, 82) !important;
+}
+
+div.navbar-header{
+    width:100%;
+}
+
+a.navbar-brand small{
+  color: rgb(230, 88, 6);
+  font-size: 20px;
+}
+
+ul.nav.navbar-nav.navbar-right {
+    position: relative;
+    display: inline;
 }
 </style>
 </head>
 <body>
-<div class='container'>
-<nav class='nav1'>
-<div class='container'>
-  <h1 class='he'>Github tool <small>by cdvx</small></h1>
-</div>
-  <ul class="nav">
-    {% if g.user %}
-      <li class="nav-item"><a class="nav-link" href="{{ url_for('user_app.user') }}">Get user</a>
-      <li class="nav-item"><a class="nav-link" href="{{ url_for('user_app.repo') }}">Get repositories</a>
-      <li class="nav-item"><a class="nav-link" href="{{ url_for('user_app.logout') }}">Log Out</a>
+<!--<div class='container h'>-->
+<!--<div class='container border-0'>-->
+<div class="stay">
+<nav id="head-footer" class='navbar navbar-default'>
+<div class='container-fluid'>
+  
+  <div class="navbar-header">
+  <h1 class='he'><a class="navbar-brand " href="/">Github tool <small>by cdvx</small></a></h1>
+    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+    </button>
+    </div>
+
+<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+{% if g.user %}
+
+  <ul class="nav navbar-nav navbar-right">
+    
+      <li ><a href="{{ url_for('user_app.user') }}">Get user</a></li>
+      <li ><a href="{{ url_for('user_app.repo') }}">Get repositories</a></li>
+      <li ><a href="{{ url_for('user_app.logout') }}">Log Out</a></li>
     {% else %}
-      <li class="nav-item"><a class="nav-link" href="{{ url_for('user_app.login') }}">Log In</a>
-    {% endif %}
+      <li ><a href="{{ url_for('user_app.login') }}">Log In</a></li>
+    
   </ul>
+  {% endif %}
+  </div>
+  </div>
 </nav>
 
-</div>
 <div class='container xxr'>
 <section class="content">
   <header>
@@ -117,5 +237,19 @@ section div.container{
 
 </section>
 </div>
+</div>
+<!-- Bootstrap tooltips -->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+  <!-- Bootstrap core JavaScript -->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.min.js"></script>
+  <!-- JQuery -->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.5.15/js/mdb.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 </body>
 </html>
+
+
+
+
