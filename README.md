@@ -1,6 +1,6 @@
 # Github tool
 A simple github tool
-The app can be accessed (HERE)[https://cdvx-github-tool.herokuapp.com/]
+The app can be accessed [HERE](https://cdvx-github-tool.herokuapp.com/)
 
 ## Product Description
 - A user logs into the application with their github
