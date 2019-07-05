@@ -158,7 +158,6 @@ def repo():
     return render_template('repos.html', user=g.user, repos=rep)
 
 def to_rep(obj):
-    print(obj)
     temp = {
         'name': obj['name'],
         'description': obj['description'] if  obj['description'] else 'No description available',
