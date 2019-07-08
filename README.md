@@ -53,11 +53,9 @@ The app can be accessed [HERE](https://cdvx-github-tool.herokuapp.com/)
     python manage.py runserver
     ```
 
-        ```
- 
 
 ## Built with
-- Python version  3
+- Python 3.6.5
 - Flask
 - Postgres
 

@@ -27,7 +27,9 @@ def before_request():
     g.user = None
     if 'user_id' in session:
         user_id = session['user_id']
-        g.user = User.query.filter_by(username=user_id).first() if user_id else None
+        get_user = lambda user_id: User.query.filter_by(username=user_id).first() or\
+                                   User.query.filter_by(github_login=user_id).first()
+        g.user = get_user(user_id) if user_id else None
 
 
 @app.after_request
